@@ -1,11 +1,36 @@
-import React from 'react';
-const player = (props) => {
-   return (
-      <div>
-         <p>I'm a Player: My name {props.name} and my score is
-         {props.score}</p>
-         {props.children}
-      </div>
-   );
+import React, { Component } from 'react'
+	
+class App extends Component {
+constructor(props){
+	super(props)
+		
+	// Set initial state
+	this.state = {greeting :
+		'Click the button to receive greetings'}
+		
+	// Binding this keyword
+	this.updateState = this.updateState.bind(this)
 }
-export default player;
+	
+updateState(){
+	// Changing state
+	this.setState({greeting :
+				'wlcome to my world !!'})
+}
+	
+render(){
+	return (
+	<div>
+	<h2>Greetings Portal</h2>
+	<p>{this.state.greeting}</p>
+	
+		{/* Set click handler */}
+		<button onClick={this.updateState}>
+		Click me!
+		</button>
+	</div>
+	)
+}
+}
+	
+export default App;
